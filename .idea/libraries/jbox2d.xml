@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jbox2d">
+    <CLASSES>
+      <root url="jar://C:/Libraries/JBox2D/jbox2d.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
