@@ -28,7 +28,7 @@ public class OpenGLHandler {
             1, 2, 3
     };
 
-    public static String getShaderSource(File file) {
+    private static String getShaderSource(File file) {
         String out = "";
         BufferedReader reader;
         try {
@@ -44,8 +44,11 @@ public class OpenGLHandler {
     }
 
     private final int vaoId, vboId, eboId;
-    public final int vsShaderId, fsShaderId, program;
+    private final int vsShaderId, fsShaderId, program;
 
+    /**
+     * Initialize a new OpenGL Handler, create buffers and shader programs.
+     */
     public OpenGLHandler() {
         FloatBuffer verticesBuffer = BufferUtils.createFloatBuffer(VERTICES.length);
         verticesBuffer.put(VERTICES);
@@ -89,6 +92,7 @@ public class OpenGLHandler {
         glVertexAttribPointer(1, 2, GL_FLOAT, false, 4 * Float.BYTES, 2 * Float.BYTES);
     }
 
+
     public enum Uniform {
         MODEL,
         COLOR,
@@ -101,6 +105,9 @@ public class OpenGLHandler {
         }
     }
 
+    /**
+     * Destroy all OpenGL created buffers and shader programs.
+     */
     public void destroy() {
         glDetachShader(program, fsShaderId);
         glDetachShader(program, vsShaderId);
